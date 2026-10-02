@@ -166,6 +166,93 @@ if (topBtn) {
     };
 }
 
+// Certificate Gallery
+const certificateTrigger = document.getElementById("openCertificates");
+const certificateDialog = document.getElementById("certificateDialog");
+
+if (certificateTrigger && certificateDialog) {
+    const certificates = [
+        {
+            src: "assets/sertif.png",
+            alt: "Certificate of Appreciation for participating in I-FEST 8.0",
+            caption: "Certificate of Appreciation"
+        },
+        {
+            src: "assets/sertif2.jpeg",
+            alt: "Microsoft Office certification",
+            caption: "Microsoft Office Certification"
+        }
+    ];
+    const certificateImage = document.getElementById("certificateImage");
+    const certificateTitle = document.getElementById("certificateDialogTitle");
+    const certificateCaption = document.getElementById("certificateCaption");
+    const certificateCount = document.getElementById("certificateCount");
+    const certificateDots = certificateDialog.querySelectorAll("[data-certificate-index]");
+    const certificateClose = certificateDialog.querySelector(".certificate-close");
+    let activeCertificate = 0;
+
+    const renderCertificate = (animate = true) => {
+        const certificate = certificates[activeCertificate];
+        certificateImage.src = certificate.src;
+        certificateImage.alt = certificate.alt;
+        certificateTitle.textContent = `Certificate ${activeCertificate + 1} of ${certificates.length}`;
+        certificateCaption.textContent = certificate.caption;
+        certificateCount.textContent = `${activeCertificate + 1} / ${certificates.length}`;
+
+        certificateDots.forEach((dot, index) => {
+            dot.setAttribute("aria-pressed", String(index === activeCertificate));
+        });
+
+        if (animate) {
+            certificateImage.classList.remove("is-visible");
+            requestAnimationFrame(() => certificateImage.classList.add("is-visible"));
+        }
+    };
+
+    const moveCertificate = (step) => {
+        activeCertificate = (activeCertificate + step + certificates.length) % certificates.length;
+        renderCertificate();
+    };
+
+    certificateTrigger.addEventListener("click", () => {
+        renderCertificate(false);
+        certificateDialog.showModal();
+    });
+
+    certificateClose.addEventListener("click", () => certificateDialog.close());
+
+    certificateDialog.querySelectorAll("[data-certificate-step]").forEach((button) => {
+        button.addEventListener("click", () => {
+            moveCertificate(Number(button.dataset.certificateStep));
+        });
+    });
+
+    certificateDots.forEach((dot, index) => {
+        dot.addEventListener("click", () => {
+            activeCertificate = index;
+            renderCertificate();
+        });
+    });
+
+    certificateDialog.addEventListener("click", (event) => {
+        if (event.target === certificateDialog) certificateDialog.close();
+    });
+
+    document.addEventListener("keydown", (event) => {
+        if (!certificateDialog.open) return;
+        if (event.key === "Escape") {
+            event.preventDefault();
+            certificateDialog.close();
+        } else if (event.key === "ArrowLeft") {
+            event.preventDefault();
+            moveCertificate(-1);
+        } else if (event.key === "ArrowRight") {
+            event.preventDefault();
+            moveCertificate(1);
+        }
+    });
+}
+
 // Skill Percentage Click Interaction
 const techCards = document.querySelectorAll(".tech");
 

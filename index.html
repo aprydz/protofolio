@@ -124,10 +124,10 @@
                 </p>
 
                 <div class="about-info">
-                    <div>
+                    <button type="button" id="openCertificates" aria-haspopup="dialog" aria-controls="certificateDialog" aria-label="Lihat 2 sertifikat">
                         <h2 class="counter" data-target="2">0</h2>
                         <span>Certificates</span>
-                    </div>
+                    </button>
                     <div>
                         <h2 class="counter" data-target="2">0</h2>
                         <span>Projects</span>
@@ -142,6 +142,37 @@
     </section>
 
     <div class="divider"></div>
+
+    <dialog class="certificate-dialog" id="certificateDialog" aria-labelledby="certificateDialogTitle">
+        <div class="certificate-viewer">
+            <header class="certificate-header">
+                <div>
+                    <span class="certificate-kicker">Certificates</span>
+                    <h2 id="certificateDialogTitle">Certificate 1 of 2</h2>
+                </div>
+                <button type="button" class="certificate-close" aria-label="Close certificates">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </header>
+            <div class="certificate-stage">
+                <button type="button" class="certificate-nav" data-certificate-step="-1" aria-label="Previous certificate">
+                    <i class="fa-solid fa-chevron-left"></i>
+                </button>
+                <img class="certificate-image is-visible" id="certificateImage" src="assets/sertif.png" alt="Certificate of Appreciation">
+                <button type="button" class="certificate-nav" data-certificate-step="1" aria-label="Next certificate">
+                    <i class="fa-solid fa-chevron-right"></i>
+                </button>
+            </div>
+            <footer class="certificate-footer">
+                <p id="certificateCaption">Certificate of Appreciation</p>
+                <span id="certificateCount" aria-live="polite">1 / 2</span>
+            </footer>
+            <div class="certificate-dots" aria-label="Choose a certificate">
+                <button type="button" data-certificate-index="0" aria-label="Show certificate 1" aria-pressed="true"></button>
+                <button type="button" data-certificate-index="1" aria-label="Show certificate 2" aria-pressed="false"></button>
+            </div>
+        </div>
+    </dialog>
 
     <!-- Skills Section -->
     <section id="skills" class="reveal">

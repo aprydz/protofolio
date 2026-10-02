@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - Apriyadi Firmansyah</title>
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- Scroll Progress Bar -->
+    <div id="progress-bar"></div>
+
+    <!-- Cursor Glow -->
+    <div class="cursor-glow"></div>
+
+    <!-- Page Loader -->
+    <div id="loader">
+        <div class="loader-content">
+            <h1>AF</h1>
+            <p>Loading Portfolio...</p>
+            <div class="loading-bar">
+                <span></span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Background Animation -->
+    <div class="bg-animation">
+        <span class="circle c1"></span>
+        <span class="circle c2"></span>
+        <span class="circle c3"></span>
+    </div>
+
+    <!-- Header & Navigation -->
+    <header>
+        <nav class="navbar">
+            <!-- Logo -->
+            <a href="#" class="logo">AF.</a>
+
+            <!-- Menu -->
+            <ul class="nav-menu">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+
+            <!-- Right Buttons -->
+            <div class="nav-right">
+                <!-- Dark Mode -->
+                <button id="themeToggle" aria-label="Toggle Dark/Light Mode">
+                    <i class="fa-solid fa-moon"></i>
+                </button>
+
+                <!-- Download CV -->
+                <a href="assets/dokumen.pdf" download="Apriyadi_Firmansyah_CV.pdf" class="cv-btn">Resume</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-left">
+            <span class="badge">👋 Available for Internship</span>
+            <h3>Hello, I'm</h3>
+            <h1>Apriyadi <span>Firmansyah</span></h1>
+            <h2 id="typing"></h2>
+            <p>
+                Informatics student with an interest in Web Development and Artificial Intelligence.
+            </p>
+            <div class="hero-btn">
+                <a href="assets/dokumen.pdf" download="Apriyadi_Firmansyah_CV.pdf" class="primary">Download CV</a>
+                <a href="#contact" class="secondary">Let's Talk</a>
+            </div>
+        </div>
+
+        <div class="hero-right">
+            <div class="photo">
+                <img src="assets/profile.jpeg" alt="Foto Profil Apriyadi Firmansyah">
+            </div>
+        </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- About Section -->
+    <section id="about" class="about reveal">
+        <div class="section-title">
+            <span>ABOUT ME</span>
+            <h2>Who Am I?</h2>
+        </div>
+
+        <div class="about-container">
+            <div class="about-image">
+                <img src="assets/profile.jpeg" alt="Tentang Apriyadi Firmansyah">
+                <div class="experience-box">
+                    <h2>3+</h2>
+                    <span>Years Learning</span>
+                </div>
+            </div>
+
+            <div class="about-content">
+                <h3>Building Digital Experiences with Modern Technologies.</h3>
+                <p>
+                    I am an Informatics student at Muhammadiyah Prof. DR. HAMKA University
+                    with an interest in Web Development and Artificial Intelligence.
+                    Currently, I am actively developing my skills through various projects,
+                    research, and self-directed learning.
+                </p>
+
+                <div class="about-info">
+                    <div>
+                        <h2 class="counter" data-target="2">0</h2>
+                        <span>Certificates</span>
+                    </div>
+                    <div>
+                        <h2 class="counter" data-target="2">0</h2>
+                        <span>Projects</span>
+                    </div>
+                    <div>
+                        <h2 class="counter" data-target="2">0</h2>
+                        <span>Learning Spirit</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- Skills Section -->
+    <section id="skills" class="reveal">
+        <div class="section-title">
+            <span>TECH STACK</span>
+            <h2>Technology I Use</h2>
+        </div>
+
+        <div class="tech-grid">
+            <div class="tech" data-percent="80">
+                <i class="fa-brands fa-html5"></i>
+                <h4>HTML</h4>
+                <div class="skill-percentage">
+                    <div class="skill-bar-wrapper">
+                        <span class="skill-label">Tingkat Kemahiran</span>
+                        <span class="skill-percent-text">80%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tech" data-percent="90">
+                <i class="fa-brands fa-css3-alt"></i>
+                <h4>CSS</h4>
+                <div class="skill-percentage">
+                    <div class="skill-bar-wrapper">
+                        <span class="skill-label">Tingkat Kemahiran</span>
+                        <span class="skill-percent-text">90%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tech" data-percent="70">
+                <i class="fa-brands fa-js"></i>
+                <h4>JavaScript</h4>
+                <div class="skill-percentage">
+                    <div class="skill-bar-wrapper">
+                        <span class="skill-label">Tingkat Kemahiran</span>
+                        <span class="skill-percent-text">70%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tech" data-percent="30">
+                <svg class="tech-svg react-svg" xmlns="http://www.w3.org/2000/svg" viewBox="-11.5 -10.23174 23 20.46348" aria-label="React JS">
+                    <circle cx="0" cy="0" r="2.05" fill="currentColor"/>
+                    <g stroke="currentColor" stroke-width="1" fill="none">
+                        <ellipse rx="11" ry="4.2"/>
+                        <ellipse rx="11" ry="4.2" transform="rotate(60)"/>
+                        <ellipse rx="11" ry="4.2" transform="rotate(120)"/>
+                    </g>
+                </svg>
+                <h4>React JS</h4>
+                <div class="skill-percentage">
+                    <div class="skill-bar-wrapper">
+                        <span class="skill-label">Tingkat Kemahiran</span>
+                        <span class="skill-percent-text">30%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tech" data-percent="20">
+                <i class="fa-brands fa-php"></i>
+                <h4>PHP</h4>
+                <div class="skill-percentage">
+                    <div class="skill-bar-wrapper">
+                        <span class="skill-label">Tingkat Kemahiran</span>
+                        <span class="skill-percent-text">20%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tech" data-percent="10">
+                <i class="fa-brands fa-laravel"></i>
+                <h4>Laravel</h4>
+                <div class="skill-percentage">
+                    <div class="skill-bar-wrapper">
+                        <span class="skill-label">Tingkat Kemahiran</span>
+                        <span class="skill-percent-text">10%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tech" data-percent="40">
+                <i class="fa-solid fa-database"></i>
+                <h4>MySQL</h4>
+                <div class="skill-percentage">
+                    <div class="skill-bar-wrapper">
+                        <span class="skill-label">Tingkat Kemahiran</span>
+                        <span class="skill-percent-text">40%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tech" data-percent="30">
+                <i class="fa-brands fa-python"></i>
+                <h4>Python</h4>
+                <div class="skill-percentage">
+                    <div class="skill-bar-wrapper">
+                        <span class="skill-label">Tingkat Kemahiran</span>
+                        <span class="skill-percent-text">30%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tech" data-percent="40">
+                <i class="fa-brands fa-git-alt"></i>
+                <h4>Git</h4>
+                <div class="skill-percentage">
+                    <div class="skill-bar-wrapper">
+                        <span class="skill-label">Tingkat Kemahiran</span>
+                        <span class="skill-percent-text">40%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- Experience Section -->
+    <section id="experience">
+        <div class="section-title reveal-title">
+            <span>MY JOURNEY</span>
+            <h2>Experience</h2>
+        </div>
+
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-card">
+                    <h3>2022</h3>
+                    <h4>Started Informatics Study</h4>
+                    <p>Began studies at Universitas Muhammadiyah Prof. DR. HAMKA.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-card">
+                    <h3>2023</h3>
+                    <h4>Learning Web Development</h4>
+                    <p>Learning HTML, CSS, JavaScript, PHP, and Laravel.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-card">
+                    <h3>2024</h3>
+                    <h4>Academic Projects</h4>
+                    <p>Developing various web-based projects.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-card">
+                    <h3>2025</h3>
+                    <h4>AI Research</h4>
+                    <p>Researching the quality of Human vs AI Generated Code.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- Projects Section -->
+    <section id="projects" class="reveal">
+        <div class="section-title">
+            <span>PORTFOLIO</span>
+            <h2>Featured Projects</h2>
+        </div>
+
+        <div class="project-grid">
+            <div class="project-card">
+                <img src="assets/project.png" alt="Sistem Manajemen Absensi Siswa">
+                <div class="project-content">
+                    <h3>Sistem Manajemen Absensi Siswa</h3>
+                    <p>
+                        Project created for the management of student attendance needs at the modern pesantren Al-Mizan.
+                    </p>
+                    <div class="tags">
+                        <span>Laravel</span>
+                        <span>MySQL</span>
+                    </div>
+                    <a href="#">View Project →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact reveal">
+        <div class="section-title">
+            <span>CONTACT</span>
+            <h2>Let's Work Together</h2>
+            <p>
+                Have a project idea, want to discuss, or just say hello?
+                Don't hesitate to contact me.
+            </p>
+        </div>
+
+        <div class="contact-container">
+            <!-- Contact Info -->
+            <div class="contact-info">
+                <div class="contact-card">
+                    <i class="fa-solid fa-envelope"></i>
+                    <div>
+                        <h4>Email</h4>
+                        <a href="mailto:apridzfirmansyah@gmail.com" class="contact-link">apridzfirmansyah@gmail.com</a>
+                    </div>
+                </div>
+
+                <div class="contact-card">
+                    <i class="fa-solid fa-phone"></i>
+                    <div>
+                        <h4>Phone</h4>
+                        <p>+62 812-3456-7890</p>
+                    </div>
+                </div>
+
+                <div class="contact-card">
+                    <i class="fa-solid fa-location-dot"></i>
+                    <div>
+                        <h4>Location</h4>
+                        <p>Banten, Indonesia</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Contact Form -->
+            <form class="contact-form" id="contactForm" action="https://formsubmit.co/apridzfirmansyah@gmail.com"
+                method="POST">
+                <!-- Konfigurasi FormSubmit -->
+                <input type="hidden" name="_captcha" value="false">
+                <input type="hidden" name="_template" value="table">
+
+                <input type="text" name="name" id="senderName" placeholder="Nama Lengkap" required>
+                <input type="email" name="email" id="senderEmail" placeholder="Alamat Email" required>
+                <input type="text" name="_subject" id="messageSubject" placeholder="Subjek Pesan">
+                <textarea name="message" id="messageBody" placeholder="Tulis pesan Anda..." required></textarea>
+                <button type="submit" id="submitBtn">
+                    <i class="fa-solid fa-paper-plane"></i>
+                    <span>Kirim Pesan</span>
+                </button>
+                <div id="formStatus" class="form-status"></div>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <h2>Let's Build Something Amazing 🚀</h2>
+        <p>© 2026 Apriyadi Firmansyah</p>
+        <div class="footer-social">
+            <a href="https://github.com/aprydz" target="_blank" aria-label="GitHub">
+                <i class="fa-brands fa-github"></i>
+            </a>
+            <a href="https://www.linkedin.com/in/apriyadi-firmansyah-61b79a204/" target="_blank" aria-label="LinkedIn">
+                <i class="fa-brands fa-linkedin"></i>
+            </a>
+            <a href="https://www.instagram.com/dzyy16/" target="_blank" aria-label="Instagram">
+                <i class="fa-brands fa-instagram"></i>
+            </a>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="topBtn" aria-label="Scroll to top">
+        <i class="fa-solid fa-arrow-up"></i>
+    </button>
+
+    <!-- Scripts -->
+    <script src="script.js"></script>
+</body>
+
+</html>

@@ -2356,7 +2356,8 @@ header, section, footer, .divider, .terminal-container, .toast-container, dialog
 .ai-assistant-wrapper {
     position: fixed;
     bottom: 25px;
-    right: 25px;
+    left: 25px;
+    right: auto;
     z-index: 998;
 }
 
@@ -2417,7 +2418,8 @@ header, section, footer, .divider, .terminal-container, .toast-container, dialog
 .ai-chat-window {
     position: absolute;
     bottom: 65px;
-    right: 0;
+    left: 0;
+    right: auto;
     width: min(390px, 92vw);
     height: 520px;
     background: var(--bot-bg);
@@ -2860,7 +2862,8 @@ body.light .toast-item {
     }
 
     .ai-chat-window {
-        right: -10px;
+        left: -10px;
+        right: auto;
         width: calc(100vw - 30px);
         height: 480px;
     }

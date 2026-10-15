@@ -23,7 +23,7 @@ const jobs = [
 let i = 0;
 let j = 0;
 let erase = false;
-const typing = document.getElementById("typing");
+const typing = document.getElementById("typingText");
 
 if (typing) {
     setInterval(() => {

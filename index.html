@@ -13,7 +13,8 @@
         rel="stylesheet">
 
     <!-- Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+        integrity="sha384-h/hnnw1Bi4nbpD6kE7nYfCXzovi622sY5WBxww8ARKwpdLj5kUWjRuyiXaD1U2JT" crossorigin="anonymous">
 
     <!-- Stylesheet -->
     <link rel="stylesheet" href="style.css">
@@ -79,7 +80,10 @@
             <span class="badge">👋 Available for Internship</span>
             <h3>Hello, I'm</h3>
             <h1>Apriyadi <span>Firmansyah</span></h1>
-            <h2 id="typing"></h2>
+            <h2 id="typing">
+                <span class="visually-hidden">Full Stack Developer</span>
+                <span id="typingText" aria-hidden="true"></span>
+            </h2>
             <p>
                 Informatics student with an interest in Web Development and Artificial Intelligence.
             </p>
@@ -369,20 +373,35 @@
             <span>PORTFOLIO</span>
             <h2>Featured Projects</h2>
         </div>
-
         <div class="project-grid">
             <div class="project-card">
                 <img src="assets/project.png" alt="Sistem Manajemen Absensi Siswa">
                 <div class="project-content">
-                    <h3>Sistem Manajemen Absensi Siswa</h3>
+                    <h3>Piscok Shop</h3>
                     <p>
-                        Project created for the management of student attendance needs at the modern pesantren Al-Mizan.
+                        Project created for the management of buy and sell snack.
+                    </p>
+                    <div class="tags">
+                        <span>JavaScript</span>
+                        <span>TypeScript</span>
+                    </div>
+                    <a href="https://piscokshopapi-production-acdd.up.railway.app/">View Project →</a>
+                </div>
+            </div>
+        </div>
+        <div class="project-grid">
+            <div class="project-card">
+                <img src="assets/project1.png" alt="Sistem Manajemen Absensi Siswa">
+                <div class="project-content">
+                    <h3>Jual Beli Pakaian Online</h3>
+                    <p>
+                        Project created for the management of cloth and pans.
                     </p>
                     <div class="tags">
                         <span>Laravel</span>
                         <span>MySQL</span>
                     </div>
-                    <a href="#">View Project →</a>
+                    <a href="https://marketfashion-production.up.railway.app/">View Project →</a>
                 </div>
             </div>
         </div>
@@ -436,9 +455,13 @@
                 <input type="hidden" name="_captcha" value="false">
                 <input type="hidden" name="_template" value="table">
 
+                <label class="visually-hidden" for="senderName">Nama Lengkap</label>
                 <input type="text" name="name" id="senderName" placeholder="Nama Lengkap" required>
+                <label class="visually-hidden" for="senderEmail">Alamat Email</label>
                 <input type="email" name="email" id="senderEmail" placeholder="Alamat Email" required>
+                <label class="visually-hidden" for="messageSubject">Subjek Pesan</label>
                 <input type="text" name="_subject" id="messageSubject" placeholder="Subjek Pesan">
+                <label class="visually-hidden" for="messageBody">Isi Pesan</label>
                 <textarea name="message" id="messageBody" placeholder="Tulis pesan Anda..." required></textarea>
                 <button type="submit" id="submitBtn">
                     <i class="fa-solid fa-paper-plane"></i>

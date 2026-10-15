@@ -21,6 +21,9 @@
 </head>
 
 <body>
+    <!-- Interactive Neural Particles Canvas -->
+    <canvas id="particlesCanvas"></canvas>
+
     <!-- Scroll Progress Bar -->
     <div id="progress-bar"></div>
 
@@ -51,18 +54,19 @@
             <!-- Logo -->
             <a href="#" class="logo">AF.</a>
 
-            <!-- Menu -->
-            <ul class="nav-menu">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#experience">Experience</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-
             <!-- Right Buttons -->
             <div class="nav-right">
+                <!-- Command Palette Shortcut Trigger -->
+                <button type="button" id="cmdPaletteBtn" class="cmd-btn" aria-label="Command Palette" title="Command Palette (Ctrl + K)">
+                    <i class="fa-solid fa-terminal"></i>
+                    <span class="cmd-shortcut"><kbd>Ctrl</kbd><kbd>K</kbd></span>
+                </button>
+
+                <!-- Sound Effects Toggle -->
+                <button type="button" id="soundToggle" class="sound-btn" aria-label="Toggle Sound Effects" title="Sound Effects: ON">
+                    <i class="fa-solid fa-volume-high"></i>
+                </button>
+
                 <!-- Dark Mode -->
                 <button id="themeToggle" aria-label="Toggle Dark/Light Mode">
                     <i class="fa-solid fa-moon"></i>
@@ -94,11 +98,49 @@
         </div>
 
         <div class="hero-right">
-            <div class="photo">
+            <div class="photo tilt-card" id="heroPhotoCard">
                 <img src="assets/profile.jpeg" alt="Foto Profil Apriyadi Firmansyah">
             </div>
         </div>
     </section>
+
+    <!-- Interactive Hero Terminal Console ("AF Console") -->
+    <div class="terminal-container reveal">
+        <div class="terminal-window">
+            <div class="terminal-header">
+                <div class="terminal-dots">
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+                </div>
+                <div class="terminal-title">
+                    <i class="fa-solid fa-terminal"></i> apriyadi@portfolio: ~ (Interactive Shell)
+                </div>
+                <div class="terminal-actions">
+                    <button type="button" class="term-action-btn" id="termCopyBtn" title="Salin output terminal"><i class="fa-regular fa-copy"></i></button>
+                    <button type="button" class="term-action-btn" id="termClearBtn" title="Bersihkan terminal"><i class="fa-solid fa-eraser"></i></button>
+                </div>
+            </div>
+            <div class="terminal-body" id="terminalBody">
+                <div class="term-line welcome-msg">
+                    Welcome to <strong>Apriyadi's Interactive Console</strong>! Type <span class="highlight">help</span> to view available commands or click quick prompts below.
+                </div>
+                <div class="term-chips" id="termQuickChips">
+                    <button type="button" data-cmd="help">help</button>
+                    <button type="button" data-cmd="skills">skills</button>
+                    <button type="button" data-cmd="projects">projects</button>
+                    <button type="button" data-cmd="about">about</button>
+                    <button type="button" data-cmd="sudo hire">sudo hire</button>
+                    <button type="button" data-cmd="clear">clear</button>
+                </div>
+                <div id="termOutput"></div>
+                <form class="term-input-row" id="terminalForm">
+                    <span class="term-prompt">guest@portfolio:~$</span>
+                    <input type="text" id="terminalInput" autocomplete="off" spellcheck="false" placeholder="Type a command (try 'skills' or 'sudo hire')...">
+                </form>
+            </div>
+        </div>
+    </div>
 
     <div class="divider"></div>
 
@@ -318,6 +360,62 @@
                     </div>
                 </div>
             </div>
+
+            <div class="tech" data-percent="55">
+                <i class="fa-brands fa-js" style="color: #3178c6;"></i>
+                <h4>TypeScript</h4>
+                <div class="skill-percentage">
+                    <div class="skill-bar-wrapper">
+                        <span class="skill-label">Tingkat Kemahiran</span>
+                        <span class="skill-percent-text">55%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tech" data-percent="50">
+                <i class="fa-brands fa-node-js" style="color: #68a063;"></i>
+                <h4>Node.js</h4>
+                <div class="skill-percentage">
+                    <div class="skill-bar-wrapper">
+                        <span class="skill-label">Tingkat Kemahiran</span>
+                        <span class="skill-percent-text">50%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tech" data-percent="65">
+                <i class="fa-solid fa-wind" style="color: #38bdf8;"></i>
+                <h4>Tailwind CSS</h4>
+                <div class="skill-percentage">
+                    <div class="skill-bar-wrapper">
+                        <span class="skill-label">Tingkat Kemahiran</span>
+                        <span class="skill-percent-text">65%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tech" data-percent="40">
+                <i class="fa-brands fa-docker" style="color: #0db7ed;"></i>
+                <h4>Docker</h4>
+                <div class="skill-percentage">
+                    <div class="skill-bar-wrapper">
+                        <span class="skill-label">Tingkat Kemahiran</span>
+                        <span class="skill-percent-text">40%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress"></div>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -373,9 +471,18 @@
             <span>PORTFOLIO</span>
             <h2>Featured Projects</h2>
         </div>
+
+        <!-- Project Category Filters -->
+        <div class="project-filters">
+            <button type="button" class="filter-btn active" data-filter="all">Semua (All)</button>
+            <button type="button" class="filter-btn" data-filter="fullstack">Full Stack</button>
+            <button type="button" class="filter-btn" data-filter="laravel">Laravel & MySQL</button>
+            <button type="button" class="filter-btn" data-filter="javascript">JavaScript / TypeScript</button>
+        </div>
+
         <div class="project-grid">
-            <div class="project-card">
-                <img src="assets/project.png" alt="Sistem Manajemen Absensi Siswa">
+            <div class="project-card spotlight-card" data-category="fullstack javascript" data-project-key="piscok">
+                <img src="assets/project.png" alt="Sistem Manajemen Piscok Shop">
                 <div class="project-content">
                     <h3>Piscok Shop</h3>
                     <p>
@@ -385,13 +492,17 @@
                         <span>JavaScript</span>
                         <span>TypeScript</span>
                     </div>
-                    <a href="https://piscokshopapi-production-acdd.up.railway.app/">View Project →</a>
+                    <div class="project-actions">
+                        <a href="https://piscokshopapi-production-acdd.up.railway.app/" target="_blank">View Project →</a>
+                        <button type="button" class="quick-preview-btn" data-project="piscok">
+                            <i class="fa-solid fa-eye"></i> Quick Preview
+                        </button>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="project-grid">
-            <div class="project-card">
-                <img src="assets/project1.png" alt="Sistem Manajemen Absensi Siswa">
+
+            <div class="project-card spotlight-card" data-category="fullstack laravel" data-project-key="marketfashion">
+                <img src="assets/project1.png" alt="Sistem Jual Beli Pakaian Online">
                 <div class="project-content">
                     <h3>Jual Beli Pakaian Online</h3>
                     <p>
@@ -401,7 +512,12 @@
                         <span>Laravel</span>
                         <span>MySQL</span>
                     </div>
-                    <a href="https://marketfashion-production.up.railway.app/">View Project →</a>
+                    <div class="project-actions">
+                        <a href="https://marketfashion-production.up.railway.app/" target="_blank">View Project →</a>
+                        <button type="button" class="quick-preview-btn" data-project="marketfashion">
+                            <i class="fa-solid fa-eye"></i> Quick Preview
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -494,7 +610,108 @@
         <i class="fa-solid fa-arrow-up"></i>
     </button>
 
-    <!-- Scripts -->
+    <!-- Project Preview Dialog Modal -->
+    <dialog id="projectPreviewDialog" class="project-preview-dialog" aria-labelledby="previewModalTitle">
+        <div class="preview-modal-inner">
+            <header class="preview-modal-header">
+                <div>
+                    <h3 id="previewModalTitle">Project Preview</h3>
+                </div>
+                <div class="preview-controls">
+                    <div class="device-switcher" aria-label="Device View Switcher">
+                        <button type="button" class="device-btn active" data-device="desktop"><i class="fa-solid fa-desktop"></i> Desktop</button>
+                        <button type="button" class="device-btn" data-device="mobile"><i class="fa-solid fa-mobile-screen"></i> Mobile</button>
+                    </div>
+                    <button type="button" class="preview-close-btn" id="previewCloseBtn" aria-label="Tutup preview"><i class="fa-solid fa-xmark"></i></button>
+                </div>
+            </header>
+            <div class="preview-stage-container">
+                <div class="device-frame" id="previewDeviceFrame">
+                    <img id="previewModalImg" src="assets/project.png" alt="Project preview screenshot">
+                </div>
+                <div class="preview-meta">
+                    <p id="previewModalDesc"></p>
+                    <div class="preview-tags" id="previewModalTags"></div>
+                    <a id="previewModalLiveLink" href="#" target="_blank" class="preview-live-link">
+                        <span>Buka Website Langsung</span>
+                        <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </dialog>
+
+    <!-- Command Palette (Ctrl + K) Dialog -->
+    <dialog id="commandPalette" class="cmd-palette-dialog" aria-labelledby="cmdSearchInput">
+        <div class="cmd-palette-box">
+            <div class="cmd-palette-header">
+                <i class="fa-solid fa-magnifying-glass cmd-icon"></i>
+                <input type="text" id="cmdSearchInput" placeholder="Ketik perintah atau cari... (misal: projects, email, cv, theme)" autocomplete="off">
+                <button type="button" id="cmdCloseBtn" aria-label="Tutup Command Palette"><kbd>Esc</kbd></button>
+            </div>
+            <div class="cmd-palette-list" id="cmdList"></div>
+            <div class="cmd-palette-footer">
+                <span><kbd>↑</kbd> <kbd>↓</kbd> Navigasi</span>
+                <span><kbd>↵ Enter</kbd> Pilih</span>
+                <span><kbd>Esc</kbd> Tutup</span>
+            </div>
+        </div>
+    </dialog>
+
+    <!-- Floating AI Assistant ("ApriBot") -->
+    <div class="ai-assistant-wrapper" id="aiAssistant">
+        <div class="ai-chat-window" id="aiChatWindow" aria-hidden="true">
+            <div class="ai-chat-header">
+                <div class="ai-chat-profile">
+                    <div class="ai-avatar">
+                        <i class="fa-solid fa-robot"></i>
+                        <span class="status-dot"></span>
+                    </div>
+                    <div>
+                        <h4>ApriBot AI</h4>
+                        <span class="ai-status">Online • Virtual Assistant</span>
+                    </div>
+                </div>
+                <div class="ai-chat-header-actions">
+                    <button type="button" id="aiResetBtn" title="Reset chat" aria-label="Reset percakapan"><i class="fa-solid fa-rotate-right"></i></button>
+                    <button type="button" id="aiCloseBtn" title="Tutup chat" aria-label="Tutup chatbot"><i class="fa-solid fa-xmark"></i></button>
+                </div>
+            </div>
+            <div class="ai-chat-messages" id="aiChatMessages">
+                <div class="chat-msg bot-msg">
+                    <div class="msg-bubble">
+                        Halo! 👋 Saya <strong>ApriBot</strong>, asisten virtual Apriyadi Firmansyah. Ada yang ingin kamu ketahui seputar skill, project, atau pengalaman Apriyadi?
+                    </div>
+                </div>
+                <div class="ai-quick-pills" id="aiQuickPills">
+                    <button type="button" data-ai-ask="Apa tech stack utama Apriyadi?">💻 Tech Stack</button>
+                    <button type="button" data-ai-ask="Project apa yang pernah dibuat?">🚀 Featured Projects</button>
+                    <button type="button" data-ai-ask="Bisa ceritakan latar belakang & pendidikan Apriyadi?">🎓 Latar Belakang</button>
+                    <button type="button" data-ai-ask="Apakah Apriyadi tersedia untuk magang / internship?">💼 Status Internship</button>
+                    <button type="button" data-ai-ask="Bagaimana cara menghubungi Apriyadi?">📬 Kontak Langsung</button>
+                </div>
+            </div>
+            <form class="ai-chat-input-area" id="aiChatForm">
+                <input type="text" id="aiChatInput" placeholder="Ketik pertanyaan kamu di sini..." autocomplete="off">
+                <button type="submit" id="aiSendBtn" aria-label="Kirim pesan"><i class="fa-solid fa-paper-plane"></i></button>
+            </form>
+        </div>
+        <button type="button" class="ai-trigger-btn" id="aiTriggerBtn" aria-label="Buka Chat AI Assistant">
+            <i class="fa-solid fa-wand-magic-sparkles"></i>
+            <span class="ai-badge">Tanya AI</span>
+        </button>
+    </div>
+
+    <!-- Matrix Rain Canvas Easter Egg -->
+    <canvas id="matrixCanvas"></canvas>
+
+    <!-- Toast Notifications -->
+    <div id="toastContainer" class="toast-container" aria-live="polite"></div>
+
+    <!-- Canvas Confetti CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+
+    <!-- Unified Portfolio Script -->
     <script src="script.js"></script>
 </body>
 

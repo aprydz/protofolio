@@ -586,11 +586,24 @@
   • about/bio  : Profil singkat & latar belakang
   • skills     : Ringkasan keahlian teknis
   • projects   : Daftar proyek unggulan & link
+  • cv/resume  : Unduh file CV / Resume PDF
   • contact    : Info kontak & sosial media
   • sudo hire  : Rekrut Apriyadi (Fast Track)
   • date       : Waktu & status saat ini
   • theme      : Ganti tema (Dark / Light)
   • clear      : Bersihkan layar terminal`,
+
+            cv: () => {
+                const link = document.createElement("a");
+                link.href = "assets/CV_Apriyadi_Firmansyah.pdf";
+                link.download = "CV_Apriyadi_Firmansyah.pdf";
+                link.click();
+                sound.playSuccess();
+                showToast("Mengunduh CV Apriyadi...", "fa-file-pdf");
+                return `📄 Mengunduh file CV Apriyadi Firmansyah (PDF)...`;
+            },
+
+            resume: () => commands.cv(),
 
             about: () => `[PROFIL] Apriyadi Firmansyah
 • Mahasiswa Informatika Universitas Muhammadiyah Prof. DR. HAMKA (UHAMKA).
@@ -777,8 +790,8 @@ Status: Available for Web Dev & AI Internship 🌟`,
             }},
             { title: "Download CV (Resume)", desc: "Unduh file PDF CV Apriyadi", icon: "fa-file-pdf", action: () => {
                 const link = document.createElement("a");
-                link.href = "assets/dokumen.pdf";
-                link.download = "Apriyadi_Firmansyah_CV.pdf";
+                link.href = "assets/CV_Apriyadi_Firmansyah.pdf";
+                link.download = "CV_Apriyadi_Firmansyah.pdf";
                 link.click();
                 sound.playSuccess();
                 showToast("Mengunduh CV Apriyadi...", "fa-file-pdf");
@@ -991,6 +1004,12 @@ Status: Available for Web Dev & AI Internship 🌟`,
 
         const generateBotReply = (prompt) => {
             const p = prompt.toLowerCase();
+
+            if (p.includes("cv") || p.includes("resume") || p.includes("unduh") || p.includes("download cv") || p.includes("curriculum")) {
+                return `📄 <strong>Curriculum Vitae (CV) / Resume Apriyadi Firmansyah:</strong><br>
+File CV siap diunduh dalam format PDF ATS-Friendly.<br>
+<a href="assets/CV_Apriyadi_Firmansyah.pdf" download="CV_Apriyadi_Firmansyah.pdf" target="_blank" style="display:inline-block; margin-top:8px; padding:6px 14px; background:linear-gradient(135deg, #0ea5e9, #38bdf8); color:#ffffff; border-radius:6px; font-weight:600; text-decoration:none;"><i class="fa-solid fa-file-arrow-down"></i> Unduh CV (PDF)</a>`;
+            }
 
             if (p.includes("tech") || p.includes("skill") || p.includes("keahlian") || p.includes("bahasa") || p.includes("stack")) {
                 return `💻 <strong>Tech Stack Utama Apriyadi:</strong><br>

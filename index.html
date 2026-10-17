@@ -57,13 +57,15 @@
             <!-- Right Buttons -->
             <div class="nav-right">
                 <!-- Command Palette Shortcut Trigger -->
-                <button type="button" id="cmdPaletteBtn" class="cmd-btn" aria-label="Command Palette" title="Command Palette (Ctrl + K)">
+                <button type="button" id="cmdPaletteBtn" class="cmd-btn" aria-label="Command Palette"
+                    title="Command Palette (Ctrl + K)">
                     <i class="fa-solid fa-terminal"></i>
                     <span class="cmd-shortcut"><kbd>Ctrl</kbd><kbd>K</kbd></span>
                 </button>
 
                 <!-- Sound Effects Toggle -->
-                <button type="button" id="soundToggle" class="sound-btn" aria-label="Toggle Sound Effects" title="Sound Effects: ON">
+                <button type="button" id="soundToggle" class="sound-btn" aria-label="Toggle Sound Effects"
+                    title="Sound Effects: ON">
                     <i class="fa-solid fa-volume-high"></i>
                 </button>
 
@@ -73,7 +75,8 @@
                 </button>
 
                 <!-- Resume Modal Trigger -->
-                <button type="button" id="resumeNavBtn" class="cv-btn open-resume-trigger" aria-haspopup="dialog" aria-controls="resumeDialog" title="Lihat Resume Apriyadi Firmansyah">
+                <button type="button" id="resumeNavBtn" class="cv-btn open-resume-trigger" aria-haspopup="dialog"
+                    aria-controls="resumeDialog" title="Lihat Resume Apriyadi Firmansyah">
                     <i class="fa-solid fa-file-pdf"></i> Resume
                 </button>
             </div>
@@ -94,7 +97,8 @@
                 Informatics student with an interest in Web Development and Artificial Intelligence.
             </p>
             <div class="hero-btn">
-                <button type="button" id="heroResumeBtn" class="primary open-resume-trigger" aria-haspopup="dialog" aria-controls="resumeDialog">
+                <button type="button" id="heroResumeBtn" class="primary open-resume-trigger" aria-haspopup="dialog"
+                    aria-controls="resumeDialog">
                     <i class="fa-solid fa-file-pdf"></i>
                     <span>Lihat CV / Resume</span>
                 </button>
@@ -122,13 +126,16 @@
                     <i class="fa-solid fa-terminal"></i> apriyadi@portfolio: ~ (Interactive Shell)
                 </div>
                 <div class="terminal-actions">
-                    <button type="button" class="term-action-btn" id="termCopyBtn" title="Salin output terminal"><i class="fa-regular fa-copy"></i></button>
-                    <button type="button" class="term-action-btn" id="termClearBtn" title="Bersihkan terminal"><i class="fa-solid fa-eraser"></i></button>
+                    <button type="button" class="term-action-btn" id="termCopyBtn" title="Salin output terminal"><i
+                            class="fa-regular fa-copy"></i></button>
+                    <button type="button" class="term-action-btn" id="termClearBtn" title="Bersihkan terminal"><i
+                            class="fa-solid fa-eraser"></i></button>
                 </div>
             </div>
             <div class="terminal-body" id="terminalBody">
                 <div class="term-line welcome-msg">
-                    Welcome to <strong>Apriyadi's Interactive Console</strong>! Type <span class="highlight">help</span> to view available commands or click quick prompts below.
+                    Welcome to <strong>Apriyadi's Interactive Console</strong>! Type <span class="highlight">help</span>
+                    to view available commands or click quick prompts below.
                 </div>
                 <div class="term-chips" id="termQuickChips">
                     <button type="button" data-cmd="help">help</button>
@@ -142,7 +149,8 @@
                 <div id="termOutput"></div>
                 <form class="term-input-row" id="terminalForm">
                     <span class="term-prompt">guest@portfolio:~$</span>
-                    <input type="text" id="terminalInput" autocomplete="off" spellcheck="false" placeholder="Type a command (try 'skills' or 'sudo hire')...">
+                    <input type="text" id="terminalInput" autocomplete="off" spellcheck="false"
+                        placeholder="Type a command (try 'skills' or 'sudo hire')...">
                 </form>
             </div>
         </div>
@@ -176,7 +184,8 @@
                 </p>
 
                 <div class="about-info">
-                    <button type="button" id="openCertificates" aria-haspopup="dialog" aria-controls="certificateDialog" aria-label="Lihat 2 sertifikat">
+                    <button type="button" id="openCertificates" aria-haspopup="dialog" aria-controls="certificateDialog"
+                        aria-label="Lihat 2 sertifikat">
                         <h2 class="counter" data-target="2">0</h2>
                         <span>Certificates</span>
                     </button>
@@ -207,10 +216,12 @@
                 </button>
             </header>
             <div class="certificate-stage">
-                <button type="button" class="certificate-nav" data-certificate-step="-1" aria-label="Previous certificate">
+                <button type="button" class="certificate-nav" data-certificate-step="-1"
+                    aria-label="Previous certificate">
                     <i class="fa-solid fa-chevron-left"></i>
                 </button>
-                <img class="certificate-image is-visible" id="certificateImage" src="assets/sertif.png" alt="Certificate of Appreciation">
+                <img class="certificate-image is-visible" id="certificateImage" src="assets/sertif.png"
+                    alt="Certificate of Appreciation">
                 <button type="button" class="certificate-nav" data-certificate-step="1" aria-label="Next certificate">
                     <i class="fa-solid fa-chevron-right"></i>
                 </button>
@@ -220,8 +231,10 @@
                 <span id="certificateCount" aria-live="polite">1 / 2</span>
             </footer>
             <div class="certificate-dots" aria-label="Choose a certificate">
-                <button type="button" data-certificate-index="0" aria-label="Show certificate 1" aria-pressed="true"></button>
-                <button type="button" data-certificate-index="1" aria-label="Show certificate 2" aria-pressed="false"></button>
+                <button type="button" data-certificate-index="0" aria-label="Show certificate 1"
+                    aria-pressed="true"></button>
+                <button type="button" data-certificate-index="1" aria-label="Show certificate 2"
+                    aria-pressed="false"></button>
             </div>
         </div>
     </dialog>
@@ -277,12 +290,13 @@
             </div>
 
             <div class="tech" data-percent="30">
-                <svg class="tech-svg react-svg" xmlns="http://www.w3.org/2000/svg" viewBox="-11.5 -10.23174 23 20.46348" aria-label="React JS">
-                    <circle cx="0" cy="0" r="2.05" fill="currentColor"/>
+                <svg class="tech-svg react-svg" xmlns="http://www.w3.org/2000/svg" viewBox="-11.5 -10.23174 23 20.46348"
+                    aria-label="React JS">
+                    <circle cx="0" cy="0" r="2.05" fill="currentColor" />
                     <g stroke="currentColor" stroke-width="1" fill="none">
-                        <ellipse rx="11" ry="4.2"/>
-                        <ellipse rx="11" ry="4.2" transform="rotate(60)"/>
-                        <ellipse rx="11" ry="4.2" transform="rotate(120)"/>
+                        <ellipse rx="11" ry="4.2" />
+                        <ellipse rx="11" ry="4.2" transform="rotate(60)" />
+                        <ellipse rx="11" ry="4.2" transform="rotate(120)" />
                     </g>
                 </svg>
                 <h4>React JS</h4>
@@ -499,7 +513,8 @@
                         <span>TypeScript</span>
                     </div>
                     <div class="project-actions">
-                        <a href="https://piscokshopapi-production-acdd.up.railway.app/" target="_blank">View Project →</a>
+                        <a href="https://piscokshopapi-production-acdd.up.railway.app/" target="_blank">View Project
+                            →</a>
                         <button type="button" class="quick-preview-btn" data-project="piscok">
                             <i class="fa-solid fa-eye"></i> Quick Preview
                         </button>
@@ -557,7 +572,7 @@
                     <i class="fa-solid fa-phone"></i>
                     <div>
                         <h4>Phone</h4>
-                        <p>+62 812-3456-7890</p>
+                        <p>+62 81401525329</p>
                     </div>
                 </div>
 
@@ -625,10 +640,13 @@
                 </div>
                 <div class="preview-controls">
                     <div class="device-switcher" aria-label="Device View Switcher">
-                        <button type="button" class="device-btn active" data-device="desktop"><i class="fa-solid fa-desktop"></i> Desktop</button>
-                        <button type="button" class="device-btn" data-device="mobile"><i class="fa-solid fa-mobile-screen"></i> Mobile</button>
+                        <button type="button" class="device-btn active" data-device="desktop"><i
+                                class="fa-solid fa-desktop"></i> Desktop</button>
+                        <button type="button" class="device-btn" data-device="mobile"><i
+                                class="fa-solid fa-mobile-screen"></i> Mobile</button>
                     </div>
-                    <button type="button" class="preview-close-btn" id="previewCloseBtn" aria-label="Tutup preview"><i class="fa-solid fa-xmark"></i></button>
+                    <button type="button" class="preview-close-btn" id="previewCloseBtn" aria-label="Tutup preview"><i
+                            class="fa-solid fa-xmark"></i></button>
                 </div>
             </header>
             <div class="preview-stage-container">
@@ -661,7 +679,8 @@
                     </div>
                 </div>
                 <div class="resume-controls">
-                    <a href="assets/CV_Apriyadi_Firmansyah.pdf" target="_blank" rel="noopener noreferrer" class="resume-external-btn" title="Buka PDF di Tab Baru">
+                    <a href="assets/CV_Apriyadi_Firmansyah.pdf" target="_blank" rel="noopener noreferrer"
+                        class="resume-external-btn" title="Buka PDF di Tab Baru">
                         <i class="fa-solid fa-arrow-up-right-from-square"></i>
                         <span>Tab Baru</span>
                     </a>
@@ -671,14 +690,16 @@
                 </div>
             </header>
             <div class="resume-viewer-container">
-                <iframe id="resumePdfViewer" src="assets/CV_Apriyadi_Firmansyah.pdf#toolbar=1&navpanes=0" title="Curriculum Vitae Apriyadi Firmansyah"></iframe>
+                <iframe id="resumePdfViewer" src="assets/CV_Apriyadi_Firmansyah.pdf#toolbar=1&navpanes=0"
+                    title="Curriculum Vitae Apriyadi Firmansyah"></iframe>
             </div>
             <footer class="resume-modal-footer">
                 <div class="resume-footer-info">
                     <i class="fa-solid fa-eye"></i>
                     <span>Menampilkan isi PDF secara langsung tanpa download otomatis</span>
                 </div>
-                <a href="assets/CV_Apriyadi_Firmansyah.pdf" target="_blank" rel="noopener noreferrer" class="resume-fullscreen-btn">
+                <a href="assets/CV_Apriyadi_Firmansyah.pdf" target="_blank" rel="noopener noreferrer"
+                    class="resume-fullscreen-btn">
                     <i class="fa-solid fa-expand"></i>
                     <span>Buka Layar Penuh</span>
                 </a>
@@ -691,7 +712,8 @@
         <div class="cmd-palette-box">
             <div class="cmd-palette-header">
                 <i class="fa-solid fa-magnifying-glass cmd-icon"></i>
-                <input type="text" id="cmdSearchInput" placeholder="Ketik perintah atau cari... (misal: projects, email, cv, theme)" autocomplete="off">
+                <input type="text" id="cmdSearchInput"
+                    placeholder="Ketik perintah atau cari... (misal: projects, email, cv, theme)" autocomplete="off">
                 <button type="button" id="cmdCloseBtn" aria-label="Tutup Command Palette"><kbd>Esc</kbd></button>
             </div>
             <div class="cmd-palette-list" id="cmdList"></div>
@@ -718,27 +740,33 @@
                     </div>
                 </div>
                 <div class="ai-chat-header-actions">
-                    <button type="button" id="aiResetBtn" title="Reset chat" aria-label="Reset percakapan"><i class="fa-solid fa-rotate-right"></i></button>
-                    <button type="button" id="aiCloseBtn" title="Tutup chat" aria-label="Tutup chatbot"><i class="fa-solid fa-xmark"></i></button>
+                    <button type="button" id="aiResetBtn" title="Reset chat" aria-label="Reset percakapan"><i
+                            class="fa-solid fa-rotate-right"></i></button>
+                    <button type="button" id="aiCloseBtn" title="Tutup chat" aria-label="Tutup chatbot"><i
+                            class="fa-solid fa-xmark"></i></button>
                 </div>
             </div>
             <div class="ai-chat-messages" id="aiChatMessages">
                 <div class="chat-msg bot-msg">
                     <div class="msg-bubble">
-                        Halo! 👋 Saya <strong>ApriBot</strong>, asisten virtual Apriyadi Firmansyah. Ada yang ingin kamu ketahui seputar skill, project, atau pengalaman Apriyadi?
+                        Halo! 👋 Saya <strong>ApriBot</strong>, asisten virtual Apriyadi Firmansyah. Ada yang ingin kamu
+                        ketahui seputar skill, project, atau pengalaman Apriyadi?
                     </div>
                 </div>
                 <div class="ai-quick-pills" id="aiQuickPills">
                     <button type="button" data-ai-ask="Apa tech stack utama Apriyadi?">💻 Tech Stack</button>
                     <button type="button" data-ai-ask="Project apa yang pernah dibuat?">🚀 Featured Projects</button>
-                    <button type="button" data-ai-ask="Bisa ceritakan latar belakang & pendidikan Apriyadi?">🎓 Latar Belakang</button>
-                    <button type="button" data-ai-ask="Apakah Apriyadi tersedia untuk magang / internship?">💼 Status Internship</button>
+                    <button type="button" data-ai-ask="Bisa ceritakan latar belakang & pendidikan Apriyadi?">🎓 Latar
+                        Belakang</button>
+                    <button type="button" data-ai-ask="Apakah Apriyadi tersedia untuk magang / internship?">💼 Status
+                        Internship</button>
                     <button type="button" data-ai-ask="Bagaimana cara menghubungi Apriyadi?">📬 Kontak Langsung</button>
                 </div>
             </div>
             <form class="ai-chat-input-area" id="aiChatForm">
                 <input type="text" id="aiChatInput" placeholder="Ketik pertanyaan kamu di sini..." autocomplete="off">
-                <button type="submit" id="aiSendBtn" aria-label="Kirim pesan"><i class="fa-solid fa-paper-plane"></i></button>
+                <button type="submit" id="aiSendBtn" aria-label="Kirim pesan"><i
+                        class="fa-solid fa-paper-plane"></i></button>
             </form>
         </div>
         <button type="button" class="ai-trigger-btn" id="aiTriggerBtn" aria-label="Buka Chat AI Assistant">

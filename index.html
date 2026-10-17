@@ -72,8 +72,10 @@
                     <i class="fa-solid fa-moon"></i>
                 </button>
 
-                <!-- Download CV -->
-                <a href="assets/CV_Apriyadi_Firmansyah.pdf" download="CV_Apriyadi_Firmansyah.pdf" target="_blank" rel="noopener noreferrer" class="cv-btn">Resume</a>
+                <!-- Resume Modal Trigger -->
+                <button type="button" id="resumeNavBtn" class="cv-btn open-resume-trigger" aria-haspopup="dialog" aria-controls="resumeDialog" title="Lihat Resume Apriyadi Firmansyah">
+                    <i class="fa-solid fa-file-pdf"></i> Resume
+                </button>
             </div>
         </nav>
     </header>
@@ -92,7 +94,10 @@
                 Informatics student with an interest in Web Development and Artificial Intelligence.
             </p>
             <div class="hero-btn">
-                <a href="assets/CV_Apriyadi_Firmansyah.pdf" download="CV_Apriyadi_Firmansyah.pdf" target="_blank" rel="noopener noreferrer" class="primary">Download CV</a>
+                <button type="button" id="heroResumeBtn" class="primary open-resume-trigger" aria-haspopup="dialog" aria-controls="resumeDialog">
+                    <i class="fa-solid fa-file-pdf"></i>
+                    <span>Lihat CV / Resume</span>
+                </button>
                 <a href="#contact" class="secondary">Let's Talk</a>
             </div>
         </div>
@@ -639,6 +644,45 @@
                     </a>
                 </div>
             </div>
+        </div>
+    </dialog>
+
+    <!-- Resume / CV PDF Preview Dialog Modal -->
+    <dialog id="resumeDialog" class="resume-dialog" aria-labelledby="resumeModalTitle">
+        <div class="resume-modal-inner">
+            <header class="resume-modal-header">
+                <div class="resume-header-title">
+                    <div class="resume-badge-icon">
+                        <i class="fa-solid fa-file-pdf"></i>
+                    </div>
+                    <div>
+                        <h3 id="resumeModalTitle">Curriculum Vitae (CV)</h3>
+                        <p class="resume-subtitle">Apriyadi Firmansyah • Dokumen PDF ATS-Friendly</p>
+                    </div>
+                </div>
+                <div class="resume-controls">
+                    <a href="assets/CV_Apriyadi_Firmansyah.pdf" target="_blank" rel="noopener noreferrer" class="resume-external-btn" title="Buka PDF di Tab Baru">
+                        <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                        <span>Tab Baru</span>
+                    </a>
+                    <button type="button" class="resume-close-btn" id="resumeCloseBtn" aria-label="Tutup preview CV">
+                        <i class="fa-solid fa-xmark"></i>
+                    </button>
+                </div>
+            </header>
+            <div class="resume-viewer-container">
+                <iframe id="resumePdfViewer" src="assets/CV_Apriyadi_Firmansyah.pdf#toolbar=1&navpanes=0" title="Curriculum Vitae Apriyadi Firmansyah"></iframe>
+            </div>
+            <footer class="resume-modal-footer">
+                <div class="resume-footer-info">
+                    <i class="fa-solid fa-eye"></i>
+                    <span>Menampilkan isi PDF secara langsung tanpa download otomatis</span>
+                </div>
+                <a href="assets/CV_Apriyadi_Firmansyah.pdf" target="_blank" rel="noopener noreferrer" class="resume-fullscreen-btn">
+                    <i class="fa-solid fa-expand"></i>
+                    <span>Buka Layar Penuh</span>
+                </a>
+            </footer>
         </div>
     </dialog>
 

@@ -404,6 +404,62 @@
     }
 
     /* ==========================================================================
+       8b. Resume / CV PDF Preview Modal System
+       ========================================================================== */
+    const resumeDialog = document.getElementById("resumeDialog");
+    const resumeCloseBtn = document.getElementById("resumeCloseBtn");
+    const resumeNavBtn = document.getElementById("resumeNavBtn");
+    const heroResumeBtn = document.getElementById("heroResumeBtn");
+
+    const openResumeModal = () => {
+        if (!resumeDialog) return;
+        sound.playChime();
+        resumeDialog.showModal();
+        showToast("Menampilkan preview CV Apriyadi...", "fa-file-pdf");
+    };
+    window.openResumeModal = openResumeModal;
+
+    const closeResumeModal = () => {
+        if (!resumeDialog) return;
+        sound.playPop();
+        resumeDialog.close();
+    };
+    window.closeResumeModal = closeResumeModal;
+
+    if (resumeNavBtn) {
+        resumeNavBtn.addEventListener("click", (e) => {
+            e.preventDefault();
+            openResumeModal();
+        });
+    }
+
+    if (heroResumeBtn) {
+        heroResumeBtn.addEventListener("click", (e) => {
+            e.preventDefault();
+            openResumeModal();
+        });
+    }
+
+    document.querySelectorAll(".open-resume-trigger").forEach((el) => {
+        if (el !== resumeNavBtn && el !== heroResumeBtn) {
+            el.addEventListener("click", (e) => {
+                e.preventDefault();
+                openResumeModal();
+            });
+        }
+    });
+
+    if (resumeCloseBtn) {
+        resumeCloseBtn.addEventListener("click", () => closeResumeModal());
+    }
+
+    if (resumeDialog) {
+        resumeDialog.addEventListener("click", (e) => {
+            if (e.target === resumeDialog) closeResumeModal();
+        });
+    }
+
+    /* ==========================================================================
        9. Interactive Neural Network Particles Canvas
        ========================================================================== */
     const canvas = document.getElementById("particlesCanvas");
@@ -586,7 +642,7 @@
   • about/bio  : Profil singkat & latar belakang
   • skills     : Ringkasan keahlian teknis
   • projects   : Daftar proyek unggulan & link
-  • cv/resume  : Unduh file CV / Resume PDF
+  • cv/resume  : Tampilkan isi CV / Resume PDF
   • contact    : Info kontak & sosial media
   • sudo hire  : Rekrut Apriyadi (Fast Track)
   • date       : Waktu & status saat ini
@@ -594,13 +650,8 @@
   • clear      : Bersihkan layar terminal`,
 
             cv: () => {
-                const link = document.createElement("a");
-                link.href = "assets/CV_Apriyadi_Firmansyah.pdf";
-                link.download = "CV_Apriyadi_Firmansyah.pdf";
-                link.click();
-                sound.playSuccess();
-                showToast("Mengunduh CV Apriyadi...", "fa-file-pdf");
-                return `📄 Mengunduh file CV Apriyadi Firmansyah (PDF)...`;
+                openResumeModal();
+                return `📄 Menampilkan Curriculum Vitae (CV) / Resume PDF di layar...`;
             },
 
             resume: () => commands.cv(),
@@ -788,13 +839,8 @@ Status: Available for Web Dev & AI Internship 🌟`,
                 const t = document.getElementById("themeToggle");
                 if (t) t.click();
             }},
-            { title: "Download CV (Resume)", desc: "Unduh file PDF CV Apriyadi", icon: "fa-file-pdf", action: () => {
-                const link = document.createElement("a");
-                link.href = "assets/CV_Apriyadi_Firmansyah.pdf";
-                link.download = "CV_Apriyadi_Firmansyah.pdf";
-                link.click();
-                sound.playSuccess();
-                showToast("Mengunduh CV Apriyadi...", "fa-file-pdf");
+            { title: "Lihat CV / Resume (PDF)", desc: "Tampilkan file PDF CV Apriyadi langsung", icon: "fa-file-pdf", action: () => {
+                openResumeModal();
             }},
             { title: "Salin Email ke Clipboard", desc: "apridzfirmansyah@gmail.com", icon: "fa-copy", action: () => {
                 navigator.clipboard.writeText("apridzfirmansyah@gmail.com").then(() => {
@@ -1007,8 +1053,11 @@ Status: Available for Web Dev & AI Internship 🌟`,
 
             if (p.includes("cv") || p.includes("resume") || p.includes("unduh") || p.includes("download cv") || p.includes("curriculum")) {
                 return `📄 <strong>Curriculum Vitae (CV) / Resume Apriyadi Firmansyah:</strong><br>
-File CV siap diunduh dalam format PDF ATS-Friendly.<br>
-<a href="assets/CV_Apriyadi_Firmansyah.pdf" download="CV_Apriyadi_Firmansyah.pdf" target="_blank" style="display:inline-block; margin-top:8px; padding:6px 14px; background:linear-gradient(135deg, #0ea5e9, #38bdf8); color:#ffffff; border-radius:6px; font-weight:600; text-decoration:none;"><i class="fa-solid fa-file-arrow-down"></i> Unduh CV (PDF)</a>`;
+Anda dapat melihat langsung isi CV dalam format PDF tanpa perlu mengunduhnya:<br>
+<div style="margin-top:10px; display:flex; flex-wrap:wrap; gap:8px;">
+    <button type="button" class="chat-resume-btn" onclick="window.openResumeModal &amp;&amp; window.openResumeModal()" style="display:inline-flex; align-items:center; gap:6px; padding:7px 14px; background:linear-gradient(135deg, #0ea5e9, #38bdf8); color:#ffffff; border:none; border-radius:6px; font-weight:600; cursor:pointer; font-size:13px; font-family:inherit;"><i class="fa-solid fa-file-pdf"></i> Tampilkan CV (PDF)</button>
+    <a href="assets/CV_Apriyadi_Firmansyah.pdf" target="_blank" rel="noopener noreferrer" style="display:inline-flex; align-items:center; gap:6px; padding:6px 12px; background:rgba(255,255,255,0.08); color:inherit; border:1px solid rgba(255,255,255,0.2); border-radius:6px; font-weight:500; text-decoration:none; font-size:13px;"><i class="fa-solid fa-arrow-up-right-from-square"></i> Buka di Tab Baru</a>
+</div>`;
             }
 
             if (p.includes("tech") || p.includes("skill") || p.includes("keahlian") || p.includes("bahasa") || p.includes("stack")) {
